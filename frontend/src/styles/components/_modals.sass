@@ -1,0 +1,20 @@
+.modal
+	@apply .flex .fixed .pin .z-50 .overflow-y-auto .bg-smoke-light .py-8
+
+.modal
+  transition: opacity .3s ease
+
+.modal__container
+  @apply .relative .w-full .max-w-md .m-auto .flex-col .flex
+  transition: all .3s ease
+
+.modal-enter
+  opacity: 0
+
+.modal-leave-active
+  opacity: 0
+
+.modal-enter .modal__container,
+.modal-leave-active .modal__container
+  -webkit-transform: scale(1.1)
+  transform: scale(1.1)

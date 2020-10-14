@@ -1,0 +1,60 @@
++block(card)
+  $block: 'card'
+  @apply .rounded .block .bg-white .w-full
+
+  +element(header)
+    @apply .px-6 .py-4 .bg-white
+
+  +element(body)
+    @apply .p-6
+
+  +element(footer)
+    @apply .p-2 .bg-white
+
+  +element(list)
+    @apply .list-reset
+
+  +element(list-item)
+    @apply .px-6 .py-4 .border-t .border-grey-light
+
+  > div
+      &:first-child
+        @apply .rounded-t
+      &:last-child
+        @apply .rounded-b
+  
+  // Theme Modifiers
+  +modifier('theme', brand)
+    >
+      +element(body, $block)
+        @apply .bg-brand .text-white
+
+  +modifier('theme', secondary)
+    >
+      +element(body, $block)
+        @apply .bg-grey-lightest .text-grey-darkest
+  
+  +modifier('theme', dark)
+    >
+      +element(body, $block)
+        @apply .bg-grey-darkest .text-white
+  
+  +modifier('theme', success)
+    >
+      +element(body, $block)
+        @apply .bg-success .text-white
+  
+  +modifier('theme', warning)
+    >
+      +element(body, $block)
+        @apply .bg-warning .text-white
+  
+  +modifier('theme', danger)
+    >
+      +element(body, $block)
+        @apply .bg-danger .text-white
+  
+  +modifier('theme', info)
+    >
+      +element(body, $block)
+        @apply .bg-info .text-white

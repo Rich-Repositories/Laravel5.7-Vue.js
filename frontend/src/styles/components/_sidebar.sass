@@ -1,0 +1,32 @@
++block(sidebar)
+  $block: 'sidebar'
+  @apply .list-reset
+  +element(item)
+    @apply .block
+  +element(link)
+    transition: color .25s, padding .25s
+    @apply .relative .no-underline .py-2 .px-6 .inline-block .w-full
+
+  // Theme Modifiers
+  +modifier('theme', dark)
+    +element(link, $block)
+      @apply .text-grey-dark
+
+      &:hover
+        @apply .text-grey
+
+      > svg
+        @apply .text-grey
+      
+      +modifier('state', active)
+        @apply .text-white .px-8
+
+        &::before
+          content: ''
+          @apply .block .absolute .pin-t .pin-b .pin-l .rounded-r .w-2 .bg-brand .text-white
+        
+        &:hover
+          @apply .text-white
+
+        > svg
+          @apply .text-white

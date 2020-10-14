@@ -1,0 +1,20 @@
++block(pagination)
+  $block: 'pagination'
+  @apply .flex .list-reset
+  
+  +element(link)
+    @apply .block .text-black .px-4 .py-2 .no-underline .rounded
+    line-height: 1.714
+    transition: background-color .25s
+
+  +element(item)
+    +modifier(state, 'active')
+      +element(link, $block)
+        @apply .bg-brand .text-white
+
+    +modifier(state, 'disabled')
+      +element(link, $block)
+        @apply .text-grey-dark .cursor-not-allowed
+
+    &:not(:first-child)
+      @apply .ml-2

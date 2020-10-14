@@ -1,0 +1,20 @@
++block(list)
+  $block: 'list'
+  @apply .list-reset .flex .flex-col .w-full
+  +modifier('space', 'base')
+    >
+      +element(item, $block)
+        &:not(:first-child)
+          @apply .mt-2
+
+  +element(item)
+    @apply .flex-1
+
++block(tiles)
+  $block: 'tiles'
+  @apply .list-reset .flex .flex-wrap .-ml-px
+  +element(item)
+    @apply .flex .p-px .rounded
+
+  +element('content')
+    @apply .bg-white .flex .flex-1 .flex-col .-mr-px .-mb-px .rounded

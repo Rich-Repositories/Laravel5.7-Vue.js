@@ -1,0 +1,57 @@
+// Fade
+.fade-enter-active,
+.fade-leave-active
+  transition: opacity 300ms
+
+.fade-enter, .fade-leave-to
+  @apply .opacity-0
+
+// Slide Left
+.sl-enter
+  @apply .opacity-0
+  transform: translateX(100%)
+
+.sl-enter-to
+  @apply .opacity-100
+  transform: translateX(0)
+
+.sl-leave
+  @apply .opacity-100
+  transform: translateX(0)
+
+.sl-leave-to
+  @apply .opacity-0
+  transform: translateX(-100%)
+
+// Slide Right
+.sr-enter
+  @apply .opacity-0
+  transform: translateX(-100%)
+
+.sr-enter-to
+  @apply .opacity-100
+  transform: translateX(0)
+
+.sr-leave
+  @apply .opacity-100
+  transform: translateX(0)
+
+.sr-leave-to
+  @apply .opacity-0
+  transform: translateX(100%)
+
+.sl-enter-active,
+.sl-leave-active,
+.sr-enter-active,
+.sr-leave-active,
+.st-enter-active,
+.st-leave-active
+  @apply .absolute .w-full
+  transition: transform 500ms ease-out, opacity 200ms ease-out
+
+#main-action,
+#secondary-actions
+  animation-duration: .3s
+#main,
+#sidebar
+  animation-duration: .5s

@@ -1,0 +1,21 @@
++block(nav)
+  @apply .list-reset
+  +element(item)
+    @apply .block
+  +element(link)
+    @apply .text-white .no-underline .text-sm .py-2 .px-4 .inline-block .w-full
+
+    &:hover
+      @apply .bg-brand-dark
+
+    > svg
+      @apply .text-grey-darker
+
+    +modifier('state', active)
+      @apply .bg-brand
+
+      &:hover
+        @apply .bg-brand-dark
+
+      > svg
+        @apply .text-white

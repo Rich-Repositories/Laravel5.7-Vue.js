@@ -1,0 +1,39 @@
+$offCanvasMenuWidth: 32rem
+
++block(off-canvas)
+  @apply .relative .min-h-screen .w-full .flex .flex-col .overflow-hidden
+
+  +element(sidebar)
+    @apply .absolute .bg-grey-darkest .min-h-screen 
+    top: 0
+    bottom: 0
+    width: $offCanvasMenuWidth
+    right: -$offCanvasMenuWidth
+    z-index: 1
+
+  +element(nav)
+    @apply .w-full
+    z-index: 1
+
+  +element(main)
+    @apply .flex .flex-1 .flex-grow
+
+  +element(overlay)
+    @apply .absolute .pin-t .pin-r .opacity-0 .z-10
+    width: 0
+    height: 0
+    background-color: rgba(0, 0, 0, .2)
+    transition: transform .5s, opacity .5s, width .1s .5s, height .1s .5s
+
+  +modifier('can', slide)
+    transition: transform .5s
+
+  &--state-open &--can-slide
+    transform: translate3d(-$offCanvasMenuWidth, 0, 0)
+
+  &--state-open &__overlay
+    @apply .opacity-100
+    width: 100%
+    height: 100%
+    transform: translate3d(-$offCanvasMenuWidth, 0, 0)
+    transition: transform .5s, opacity .5s

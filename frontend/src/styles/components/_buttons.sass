@@ -1,0 +1,120 @@
++block(btn)
+  @apply .text-sm .py-2 .px-4 .rounded .bg-grey .text-grey-darkest .shadow .no-underline .inline-block
+  line-height: 1.714
+  transition: background-color .25s
+  outline: none
+
+  &:hover,
+  &:focus
+    &:not(:disabled)
+      @apply .bg-grey-dark .shadow-md
+      transform: translateY(-1px)
+      outline: none
+
+  &:disabled
+    @apply .bg-grey-lighter .shadow-none
+    transform: translateY(1px)
+
+  // Sizes
+  +modifier('size', small)
+    line-height: 1.143
+
+  +modifier('size', medium)
+    @apply .py-3 .px-4 .text-base .leading-normal
+
+  +modifier('size', large)
+    @apply .py-3 .px-6 .text-xl .leading-normal
+
+  // Themes
+  +modifier('theme', brand)
+    @apply .bg-brand .text-white
+
+    &:hover,
+    &:focus
+      &:not(:disabled)
+        @apply .bg-brand-dark
+
+    &:disabled
+      @apply .bg-brand-light
+
+  +modifier('theme', cta)
+    @apply .bg-cta .text-white
+
+    &:hover,
+    &:focus
+      &:not(:disabled)
+        @apply .bg-cta-dark
+
+    &:disabled
+      @apply .bg-cta-light
+
+  +modifier('theme', success)
+    @apply .bg-success .text-white
+
+    &:hover,
+    &:focus
+      &:not(:disabled)
+        @apply .bg-success-dark
+
+    &:disabled
+      @apply .bg-success-light
+
+  +modifier('theme', danger)
+    @apply .bg-danger .text-white
+
+    &:hover,
+    &:focus
+      &:not(:disabled)
+        @apply .bg-danger-dark
+
+    &:disabled
+      @apply .bg-danger-light
+
+  +modifier('theme', secondary)
+    @apply .bg-white .text-brand
+
+    &:hover,
+    &:focus
+      &:not(:disabled)
+        @apply .bg-brand .text-white
+
+    &:disabled
+      @apply .bg-brand-light .text-white
+
+  +modifier('theme', dark)
+    @apply .bg-grey-darkest .text-white
+
+    &:hover,
+    &:focus
+      &:not(:disabled)
+        @apply .bg-black .text-white
+
+    &:disabled
+      @apply .bg-grey-lighter .text-white
+
+  +modifier('theme', link)
+    @apply .bg-transparent .text-brand .shadow-none
+
+    &:hover,
+    &:focus
+      &:not(:disabled)
+        @apply .bg-smoke-lightest .shadow-none
+        transform: translateY(0)
+
+    &:disabled
+      @apply .bg-transparent .text-grey
+
+  +modifier('theme', transparent)
+    @apply .bg-transparent .text-grey-darkest .shadow-none
+
+    &:hover,
+    &:focus
+      &:not(:disabled)
+        @apply .bg-transparent .text-black .shadow-none
+        transform: translateY(0)
+
+    &:disabled
+      @apply .bg-transparent .text-grey
+
+  +modifier('style', block)
+    @apply .w-full .block

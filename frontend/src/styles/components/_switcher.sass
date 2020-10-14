@@ -1,0 +1,30 @@
+.switcher
+  outline: 0
+  @apply .relative .cursor-pointer .w-12 .h-6 .bg-smoke-lightest .appearance-none .rounded-full
+  @apply .p-0 .m-0 .select-none .border-none .block
+
+  &::before
+    content: ' '
+    @apply .absolute .pin .bg-smoke-lightest .rounded-full
+    transition: background-color 250ms
+
+  &::after
+    content: ' '
+    @apply .absolute .bg-white .rounded-full .shadow
+    width: 20px
+    height: 20px
+    top: .25rem
+    transition: all 250ms
+
+  &:not(:checked)::after
+    left: .25rem
+
+  &:active::after
+    @apply .w-8
+
+  &:checked::before
+    @apply .bg-success
+
+  &:checked::after
+    transform: translate3d(2rem, 0, 0)
+    right: 2.25rem

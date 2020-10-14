@@ -1,0 +1,22 @@
++block(nav-bar)
+  @apply .flex .w-full
+  z-index: 1
+  transform: translate3d(0, 0, 0)
+
+  +element(logo)
+    @apply .inline-flex .text-2xl .leading-normal .py-2 .px-4
+
+  +element(link)
+    @apply .inline-flex .py-4 .px-6 .leading-normal .cursor-default .text-grey-darker
+
+    &:hover
+      @apply .bg-grey-lightest
+    
+    +modifier('is', active)
+      @apply .text-brand
+
+  +modifier('is', fixed)
+    @apply .fixed .pin-t
+
+  +modifier('theme', white)
+    @apply .bg-white

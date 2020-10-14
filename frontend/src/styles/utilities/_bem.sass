@@ -1,0 +1,45 @@
+$elementSeparator: '__'
+$modifierSeparator: '--'
+
+=block($block)
+  .#{$block}
+    @content
+
+=element($element, $block: null)
+  @if $block
+    .#{selector-append($block, $elementSeparator, $element)}
+      @content
+  @else
+    @at-root
+      #{selector-append(&, $elementSeparator, $element)}
+        @content
+
+@function getBlock($selector)
+  $index : str-index(#{nth($selector, 1)}, $elementSeparator)
+  @return str-slice(#{nth($selector, 1)}, 1, $index - 1)
+
+=whenIsFollowing($element: null)
+  @if $element
+    $block: getBlock(&)
+    @at-root
+      #{selector-append($block, $elementSeparator, $element)} + &
+        @content
+  @else
+    @at-root
+    & + &
+      @content
+
+=whenIsSiblingOf($element)
+  $block: getBlock(&)
+  @at-root
+    #{selector-append($block, $elementSeparator, $element)} ~ &
+      @content
+
+=whenNestedIn($block)
+  @at-root
+    .#{$block} &
+      @content
+
+=modifier($type, $modifier)
+  &#{$modifierSeparator}#{$type}-#{$modifier}
+    @content
