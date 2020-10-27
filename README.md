@@ -16,10 +16,7 @@
 
 
 ## How to use
-### Clone repository
-```sh
-$ git clone git@github.com:khoa-ng/vue-laravel5.7.git
-```
+
 ### Setup Laravel
 1. Install Dependencies
     ```sh
